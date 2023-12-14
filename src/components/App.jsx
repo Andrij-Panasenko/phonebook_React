@@ -16,6 +16,9 @@ import { refreshUser } from 'redux/auth/operations';
 import { Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('../pages/Home'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const PhonebookPage = lazy(() => import('../pages/Phonebook'));
 
 // export const App = () => {
 //   const dispatch = useDispatch();
@@ -56,6 +59,8 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage/>} />
         <Route />
       </Route>
     </Routes>
