@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -14,30 +16,57 @@ const validationSchema = Yup.object().shape({
 });
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
+  // const submit = e => {
+  //   e.preventDefault();
+
+  //   const form = e.currentTarget;
+
+  //   dispatch(
+  //     register({
+  //       name: form.elements.name.value,
+  //       email: form.elements.email.value,
+  //       password: form.elements.password.value,
+  //     })
+  //   );
+  // }
+
   return (
     <>
+      {/* <form onSubmit={submit}>
+        <input name="name" />
+        <input name="email" />
+        <input name="password" />
+        <button>submit</button>
+      </form> */}
       <Formik
         initialValues={{ email: '', name: '', password: '' }}
+        validationSchema={validationSchema}
         onSubmit={(values, actions) => {
-          console.log(values);
+          console.log('values', values);
+          dispatch(register(values));
           actions.resetForm();
         }}
       >
         <Form>
           <label>
             Name:
-            <Field name="name" type="text"/>
+            <Field name="name" type="text" />
+            <ErrorMessage name="name" />
           </label>
           <label>
             Email:
-            <Field name="email" type="email"/>
+            <Field name="email" type="email" />
+            <ErrorMessage name="email" />
           </label>
 
           <label>
             Password:
-            <Field name="password" type="password"/>
+            <Field name="password" type="password" />
+            <ErrorMessage name="password" />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit">Register</button>
         </Form>
       </Formik>
     </>

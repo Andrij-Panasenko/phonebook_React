@@ -1,39 +1,56 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com/";
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const setAuthHeader = token => {
-   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-}
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
 
 const clearAuthHeader = () => {
-   axios.defaults.headers.common.Authorization = '';
-}
+  axios.defaults.headers.common.Authorization = '';
+};
 
 export const register = createAsyncThunk(
-   'auth/register',
-   async (creds, thunkAPI) => { 
-      try {
-         const response = await axios.post("users/signup", creds)
-         return response.data;
-      } catch (error) {
-         return thunkAPI.rejectWithValue(error.message);
-      }
-   }
+  'auth/register',
+  async (creds, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/signup', creds);
+      setAuthHeader(response.data.token)
+      console.log('response', response)
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
 );
 
 export const logIn = createAsyncThunk(
-   'auth/logIn',
-   async (creds, thunkAPI) => { }
+  'auth/logIn',
+  async (creds, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/login', creds);
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
 );
 
 export const logOut = createAsyncThunk(
-   'auth/logOut',
-   async (_, thunkAPI) => { }
+  'auth/logOut',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/logout')
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
 );
 
 export const refreshUser = createAsyncThunk(
-   'auth/refreshUser',
-   async (_, thunkAPI) => { }
+  'auth/refreshUser',
+  async (_, thunkAPI) => {}
 );

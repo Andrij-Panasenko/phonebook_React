@@ -1,7 +1,13 @@
+import { Helmet } from 'react-helmet';
+import { LoginForm } from 'components/LoginForm/LoginForm';
+
 export default function logIn() {
-   return (
-      <>
-         <h1>login page</h1>
-      </>
-   )
+  return (
+    <>
+      <Helmet>
+        <title>login page</title>
+      </Helmet>
+      <LoginForm />
+    </>
+  );
 }
