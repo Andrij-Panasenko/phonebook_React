@@ -18,28 +18,15 @@ const validationSchema = Yup.object().shape({
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  // const submit = e => {
-  //   e.preventDefault();
 
-  //   const form = e.currentTarget;
-
-  //   dispatch(
-  //     register({
-  //       name: form.elements.name.value,
-  //       email: form.elements.email.value,
-  //       password: form.elements.password.value,
-  //     })
-  //   );
-  // }
 
   return (
     <>
-      {/* <form onSubmit={submit}>
-        <input name="name" />
-        <input name="email" />
-        <input name="password" />
-        <button>submit</button>
-      </form> */}
+
+      {/* // кдери для логіну {
+        email: "qwewq@mail.com", 
+      name: "qwewq", 
+      password: "qwewq12321"} */}
       <Formik
         initialValues={{ email: '', name: '', password: '' }}
         validationSchema={validationSchema}

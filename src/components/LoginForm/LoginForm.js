@@ -13,6 +13,8 @@ const validationSchema = Yup.object().shape({
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
+  // кдери для логіну {email: "qwewq@mail.com", name: "qwewq", password: "qwewq12321"}
+
   return (
     <>
       <Formik

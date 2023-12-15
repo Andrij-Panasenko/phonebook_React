@@ -5,7 +5,7 @@
 // import { ContactList } from './ContactList/ContactList';
 // import { Title } from './Title/Title';
 // import { Filter } from './Filter/Filter';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { lazy, useEffect } from 'react';
 // import { fetchContacts } from 'redux/operations';
 // import { selectIsLoading } from 'redux/seceltors';
@@ -25,9 +25,9 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
@@ -35,15 +35,14 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
+
         <Route
           path="/register"
           element={
-            <RestrictedRoute
-              redirectTo="/phonebook"
-              component={<RegisterPage />}
-            />
+            <RestrictedRoute redirectTo="/login" component={<RegisterPage />} />
           }
         />
+
         <Route
           path="/login"
           element={
