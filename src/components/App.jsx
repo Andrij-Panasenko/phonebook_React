@@ -26,7 +26,7 @@ export const App = () => {
   !isRefreshing && Notiflix.Loading.remove();
 
   return isRefreshing ? (
-    Notiflix.Loading.dots('Please, wait...')
+    Notiflix.Loading.dots('Refreshing user...')
   ) : (
     <>
       <Routes>
