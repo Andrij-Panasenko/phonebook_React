@@ -3,10 +3,9 @@ import { Helmet } from 'react-helmet';
 const styles = {
   container: {
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
   },
-}
+};
 
 export default function Home() {
   return (
