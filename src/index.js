@@ -4,8 +4,9 @@ import { App } from 'components/App';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor } from 'redux/store';
 import { store } from 'redux/store';
-
 const theme = {
   colors: {
     white: '#ffffff',
@@ -25,9 +26,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="goit-react-hw-08-phonebook">
       <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <PersistGate loading={null} persistor={persistor}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </PersistGate>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
