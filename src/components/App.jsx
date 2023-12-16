@@ -8,6 +8,8 @@ import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 
+import Notiflix from 'notiflix';
+
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
@@ -21,8 +23,10 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
+  !isRefreshing && Notiflix.Loading.remove();
+
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    Notiflix.Loading.dots('Please, wait...')
   ) : (
     <>
       <Routes>
@@ -55,7 +59,7 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<PhonebookPage />} />
             }
           />
-          {/* <Route path="*" element={<HomePage />} /> */}
+          <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
     </>
