@@ -1,12 +1,11 @@
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
+import { register } from 'redux/auth/auth-operations';
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Formik, Form } from 'formik';
 
 import * as Yup from 'yup';
 import {
   RegisterWrapp,
-  
   Field,
   ErrorMessage,
   Button,

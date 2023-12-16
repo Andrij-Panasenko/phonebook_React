@@ -1,7 +1,7 @@
-import { Formik, Form, } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
+import { logIn } from 'redux/auth/auth-operations';
 
 import {
   Button,
@@ -37,13 +37,13 @@ export const LoginForm = () => {
           <Label>
             Email:
             <Field name="email" type="email" />
-            <ErrorMessage name="email" component="span"/>
+            <ErrorMessage name="email" component="span" />
           </Label>
 
           <Label>
             Password:
             <Field name="password" type="password" />
-            <ErrorMessage name="password" component="span"/>
+            <ErrorMessage name="password" component="span" />
           </Label>
           <Button type="submit">Log In</Button>
         </Form>

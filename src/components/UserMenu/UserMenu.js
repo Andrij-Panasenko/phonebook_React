@@ -1,6 +1,6 @@
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
-import { logOut } from 'redux/auth/operations';
+import { logOut } from 'redux/auth/auth-operations';
 import { Wrapp, Name, Button } from './UserMenu.styled';
 
 export const UserMenu = () => {
