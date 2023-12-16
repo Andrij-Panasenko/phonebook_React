@@ -1,7 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
+
 import * as Yup from 'yup';
+import {
+  RegisterWrapp,
+  
+  Field,
+  ErrorMessage,
+  Button,
+  Label,
+} from './RegisterForm.styled';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too short!').required('Name is required'),
@@ -18,11 +28,8 @@ const validationSchema = Yup.object().shape({
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-
-
   return (
-    <>
-
+    <RegisterWrapp>
       {/* // кдери для логіну {
         email: "qwewq@mail.com", 
       name: "qwewq", 
@@ -37,25 +44,25 @@ export const RegisterForm = () => {
         }}
       >
         <Form>
-          <label>
+          <Label>
             Name:
             <Field name="name" type="text" />
-            <ErrorMessage name="name" />
-          </label>
-          <label>
+            <ErrorMessage name="name" component="span" />
+          </Label>
+          <Label>
             Email:
             <Field name="email" type="email" />
-            <ErrorMessage name="email" />
-          </label>
+            <ErrorMessage name="email" component="span" />
+          </Label>
 
-          <label>
+          <Label>
             Password:
             <Field name="password" type="password" />
-            <ErrorMessage name="password" />
-          </label>
-          <button type="submit">Register</button>
+            <ErrorMessage name="password" component="span" />
+          </Label>
+          <Button type="submit">Register</Button>
         </Form>
       </Formik>
-    </>
+    </RegisterWrapp>
   );
 };

@@ -1,7 +1,15 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+
+import {
+  Button,
+  LoginWrapp,
+  Field,
+  Label,
+  ErrorMessage,
+} from './LoginForm.styled';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required('Must be filled'),
@@ -16,7 +24,7 @@ export const LoginForm = () => {
   // кдери для логіну {email: "qwewq@mail.com", name: "qwewq", password: "qwewq12321"}
 
   return (
-    <>
+    <LoginWrapp>
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchema}
@@ -26,20 +34,20 @@ export const LoginForm = () => {
         }}
       >
         <Form>
-          <label>
+          <Label>
             Email:
             <Field name="email" type="email" />
-            <ErrorMessage name="email" />
-          </label>
+            <ErrorMessage name="email" component="span"/>
+          </Label>
 
-          <label>
+          <Label>
             Password:
             <Field name="password" type="password" />
-            <ErrorMessage name="password" />
-          </label>
-          <button type="submit">Log In</button>
+            <ErrorMessage name="password" component="span"/>
+          </Label>
+          <Button type="submit">Log In</Button>
         </Form>
       </Formik>
-    </>
+    </LoginWrapp>
   );
 };

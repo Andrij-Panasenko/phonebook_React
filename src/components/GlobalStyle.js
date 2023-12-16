@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
+html {
+  /* background-color: #F6F6F6; */
+
+}
    body {
   font-family: Ubuntu, sans-serif;
 }
