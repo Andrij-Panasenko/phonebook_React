@@ -7,7 +7,6 @@ export const UserMenu = () => {
    const { user } = useAuth();
 
    
-   
    return (
       <div>
          <p>Welcome, {user.name}</p>

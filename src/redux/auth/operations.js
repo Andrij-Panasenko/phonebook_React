@@ -50,7 +50,7 @@ export const refreshUser = createAsyncThunk(
     const { token } = thunkAPI.getState();
 
     if (!token) {
-      return;
+      return thunkAPI.rejectWithValue('Not Valid');
     }
 
     setAuthHeader(token);
