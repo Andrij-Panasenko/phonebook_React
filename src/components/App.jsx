@@ -60,33 +60,10 @@ export const App = () => {
             <PrivateRoute redirectTo="/login" component={<PhonebookPage />} />
           }
         />
-        <Route />
+        <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>
   );
 };
 
-// export const App = () => {
-//   const dispatch = useDispatch();
-//   const isLoading = useSelector(selectIsLoading);
 
-//   useEffect(() => {
-//     dispatch(fetchContacts());
-//   }, [dispatch]);
-
-//   return (
-//     <>
-//       {isLoading
-//         ? Notiflix.Loading.dots('Please, wait...')
-//         : Notiflix.Loading.remove()}
-//       <Wrapper>
-//         <h1>Phonebook</h1>
-//         <ContactAddForm />
-//         <Title title="Contacts" />
-//         <Filter />
-//         <ContactList />
-//       </Wrapper>
-//       <GlobalStyle />
-//     </>
-//   );
-// };
