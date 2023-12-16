@@ -15,6 +15,7 @@ import { Layout } from './Layout';
 import { refreshUser } from 'redux/auth/operations';
 import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -52,13 +53,11 @@ export const App = () => {
             />
           }
         />
+
         <Route
           path="/phonebook"
           element={
-            <RestrictedRoute
-              redirectTo="/login"
-              component={<PhonebookPage />}
-            />
+            <PrivateRoute redirectTo="/login" component={<PhonebookPage />} />
           }
         />
         <Route />
