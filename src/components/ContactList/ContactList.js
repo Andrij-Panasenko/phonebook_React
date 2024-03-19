@@ -15,7 +15,7 @@ export const ContactList = () => {
           ))
         ) : (
           <Notify>
-            Your contatcs is empty. Please add contact to your list
+            Your contatcs is empty. Please add contact to your list ✌
           </Notify>
         )}
       </ul>
