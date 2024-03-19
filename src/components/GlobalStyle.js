@@ -1,10 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
+import backgroung from 'assets/img/background.jpg';
+
 
 export const GlobalStyle = createGlobalStyle`
 html {
   /* background-color: #F6F6F6; */
-  background-image: url("../../assets/background.jpg");
+  background-image: url(${backgroung});
 }
    body {
   font-family: Ubuntu, sans-serif;

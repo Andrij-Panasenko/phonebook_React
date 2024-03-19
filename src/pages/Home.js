@@ -13,10 +13,11 @@ export default function Home() {
       <Helmet>
         <title>Welcome page ✌</title>
       </Helmet>
-      <img
+      {/* <img
         src="https://t3.ftcdn.net/jpg/04/55/59/32/360_F_455593262_z8FumgXN7OkDnAZEwHpWyB83TXz51fxl.jpg"
         alt="weclome img"
-      />
+      /> */}
+      <h1>Welcome 😊</h1>
     </div>
   );
 }
