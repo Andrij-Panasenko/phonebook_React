@@ -24,7 +24,7 @@ const theme = {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="goit-react-hw-08-phonebook">
+    <BrowserRouter basename="phonebook_React">
       <ThemeProvider theme={theme}>
         <PersistGate loading={null} persistor={persistor}>
           <Provider store={store}>
