@@ -4,10 +4,11 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
 html {
   /* background-color: #F6F6F6; */
-
+  background-image: url("../../assets/background.jpg");
 }
    body {
   font-family: Ubuntu, sans-serif;
+  height: 100vh;
 }
 
 button {

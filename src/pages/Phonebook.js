@@ -18,7 +18,7 @@ export default function Phonebook() {
     <>
       <Wrapper>
         <Helmet>
-          <title>Phonebook</title>
+          <title>Phonebook ☎</title>
         </Helmet>
 
         <ContactAddForm />
